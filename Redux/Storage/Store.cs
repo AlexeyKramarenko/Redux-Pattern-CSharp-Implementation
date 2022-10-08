@@ -7,7 +7,8 @@ namespace Redux.Storage
 {
     public class Store
     {
-        private readonly List<Action<State>> _renderActions = new List<Action<State>>();
+
+        private readonly List<Action<State>> _renderEntitiesDataMethodsList = new List<Action<State>>();
         private readonly StatesHistory _statesHistory = new StatesHistory();
 
         private readonly Reducer _reducer;
@@ -16,6 +17,7 @@ namespace Redux.Storage
         {
             _reducer = reducer;
         }
+
         public static Store Create(Reducer reducer)
         {
             if (reducer == null)
@@ -26,26 +28,34 @@ namespace Redux.Storage
             return new Store(reducer);
         }
 
-        // Set visualizion method
-        public void Subscribe(Action<State> renderAction)
+
+        // Set any entities visualizion method
+        public void Subscribe(Action<State> renderEntitesDataMethod)
         {
-            _renderActions.Add(renderAction);
+            _renderEntitiesDataMethodsList.Add(renderEntitesDataMethod);
         }
 
-        // Update state
+
+        // ADD new state (NOT REPLACE/UPDATE IT like in VUEX) and UPDATE view with it (last added state) AT ONCE
         public void Dispatch(IAction updateStateAction)
         {
-            var newState = _reducer.Reduce(GetState(), updateStateAction);
+            State newState = _reducer.Reduce(GetState(), updateStateAction);
 
             _statesHistory.Add(newState);
 
             VisualizeCurrentState();
         }
 
-        private void VisualizeCurrentState() =>
-            _renderActions.ForEach(renderAction => renderAction(GetState()));
 
-        private State GetState() => 
+        #region Private Methods 
+
+        private void VisualizeCurrentState() =>
+            _renderEntitiesDataMethodsList.ForEach(render => render(GetState()));
+
+        private State GetState() =>
             _statesHistory.Last();
+
+        #endregion
+
     }
 }

@@ -13,7 +13,7 @@ namespace Invoker
         {
             var store = Store.Create(new Reducer());
 
-            store.Subscribe(RenderHelper.DisplayStateOnEveryDispatchedAction);
+            store.Subscribe(RenderHelper.DisplayState);
 
             store.Dispatch(null);
             store.Dispatch(null);

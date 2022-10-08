@@ -5,12 +5,12 @@ namespace Invoker.Entities
     public class Phone : IEntity
     {
         public int Id { get; }
-        public string Text { get; }
+        public string Name { get; }
 
-        public Phone(int id, string text)
+        public Phone(int id, string name)
         {
             Id = id;
-            Text = text;
+            Name = name;
         }
     }
 }

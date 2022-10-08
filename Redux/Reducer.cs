@@ -12,22 +12,31 @@ namespace Redux
             switch (action)
             {
                 case IAddItem _action:
-                    state.Add(_action.Entity);
-                    return state;
+                    {
+                        state.Add(_action.Entity);
+                        return state;
+                    }
 
                 case IDeleteItem _action:
-                    var obj = state.FirstOrDefault(a => a.Id == _action.Id);
-                    state.Remove(obj);
-                    return state;
+                    {
+                        IEntity entity = state.FirstOrDefault(a => a.Id == _action.Id);
+                        if (entity != null)
+                        {
+                            state.Remove(entity);
+                        }
+                        return state;
+                    }
 
                 case IUpdateItem _action:
-                    var obj2 = state.FirstOrDefault(a => a.Id == _action.Entity.Id);
-                    if (obj2 != null)
                     {
-                        state.Remove(obj2);
+                        IEntity entity = state.FirstOrDefault(a => a.Id == _action.Entity.Id);
+                        if (entity != null)
+                        {
+                            state.Remove(entity);
+                        }
+                        state.Add(_action.Entity);
+                        return state;
                     }
-                    state.Add(_action.Entity);
-                    return state;
 
                 default:
                     return state;
