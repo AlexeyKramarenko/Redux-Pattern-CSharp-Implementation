@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoker", "ReduxImplementation\Invoker.csproj", "{A491C669-472D-49CB-A701-1519ADA5B555}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoker", "Invoker\Invoker.csproj", "{A491C669-472D-49CB-A701-1519ADA5B555}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redux", "Redux\Redux.csproj", "{1A0776DB-F970-4ACF-95A2-41F07D6CF9B4}"
 EndProject

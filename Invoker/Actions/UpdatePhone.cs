@@ -1,8 +1,8 @@
 ﻿using Redux;
 using Redux.Actions;
-using ReduxImplementation.Entities;
+using Invoker.Entities;
 
-namespace ReduxImplementation.Actions
+namespace Invoker.Actions
 {
     public class UpdatePhone : IUpdateItem
     {

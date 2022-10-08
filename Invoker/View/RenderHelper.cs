@@ -1,9 +1,9 @@
 ﻿using Redux.Storage;
-using ReduxImplementation.Entities;
+using Invoker.Entities;
 using System;
 using System.Text;
 
-namespace ReduxImplementation.View
+namespace Invoker.View
 {
     static class RenderHelper
     {

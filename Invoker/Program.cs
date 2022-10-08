@@ -1,8 +1,8 @@
 ﻿using Redux;
 using Redux.Storage;
-using ReduxImplementation.Actions;
-using ReduxImplementation.Entities;
-using ReduxImplementation.View;
+using Invoker.Actions;
+using Invoker.Entities;
+using Invoker.View;
 using System;
 
 namespace Invoker

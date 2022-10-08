@@ -1,6 +1,6 @@
 ﻿using Redux.Actions;
 
-namespace ReduxImplementation.Actions
+namespace Invoker.Actions
 {
     public class DeletePhone : IDeleteItem
     {

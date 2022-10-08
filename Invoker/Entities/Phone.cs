@@ -1,6 +1,6 @@
 ﻿using Redux;
 
-namespace ReduxImplementation.Entities
+namespace Invoker.Entities
 {
     public class Phone : IEntity
     {
