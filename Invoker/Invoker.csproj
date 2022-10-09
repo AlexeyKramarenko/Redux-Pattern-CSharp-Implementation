@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\PhoneActionCreators.cs" />
+    <Compile Include="Factories\PhoneActionCreators.cs" />
     <Compile Include="Actions\UpdatePhone.cs" />
     <Compile Include="Actions\AddPhone.cs" />
     <Compile Include="Actions\DeletePhone.cs" />
