@@ -32,9 +32,9 @@ namespace Redux
                         IEntity entity = state.FirstOrDefault(a => a.Id == _action.Entity.Id);
                         if (entity != null)
                         {
-                            state.Remove(entity);
-                        }
-                        state.Add(_action.Entity);
+                            state.Remove(entity); 
+                            state.Add(_action.Entity);
+                        }                        
                         return state;
                     }
 

@@ -4,7 +4,7 @@ using Invoker.Entities;
 
 namespace Invoker.Actions
 {
-    public class AddPhone : IUpdateItem
+    public class AddPhone : IAddItem
     {
         public IEntity Entity { get; }
 

@@ -1,8 +1,7 @@
-﻿using Redux;
-using Redux.Storage;
-using Invoker.Actions;
-using Invoker.Entities;
+﻿using Invoker.Actions;
 using Invoker.View;
+using Redux;
+using Redux.Storage;
 using System;
 
 namespace Invoker
@@ -11,6 +10,8 @@ namespace Invoker
     {
         public static void Main()
         {
+            var actionCreators = new PhoneActionCreators();
+
             var store = Store.Create(new Reducer());
 
             store.Subscribe(RenderHelper.DisplayState);
@@ -18,13 +19,13 @@ namespace Invoker
             store.Dispatch(null);
             store.Dispatch(null);
             store.Dispatch(null);
-            store.Dispatch(new AddPhone(new Phone(1, "Motorola")));
-            store.Dispatch(new AddPhone(new Phone(2, "Sumsung")));
-            store.Dispatch(new AddPhone(new Phone(3, "Nokia")));
-            store.Dispatch(new DeletePhone(id: 3));
-            store.Dispatch(new UpdatePhone(new Phone(2, "APPLE")));
-            store.Dispatch(new DeletePhone(id: 2));
-            store.Dispatch(new DeletePhone(id: 1));
+            store.Dispatch(actionCreators.Add(1, "Motorola"));
+            store.Dispatch(actionCreators.Add(2, "Sumsung"));
+            store.Dispatch(actionCreators.Add(3, "Nokia"));
+            store.Dispatch(actionCreators.Delete(id: 3));
+            store.Dispatch(actionCreators.Update(2, "APPLE"));
+            store.Dispatch(actionCreators.Delete(id: 2));
+            store.Dispatch(actionCreators.Delete(id: 1));
 
             Console.ReadKey();
         }
