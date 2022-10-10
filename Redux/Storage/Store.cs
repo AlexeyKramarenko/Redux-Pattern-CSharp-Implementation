@@ -53,7 +53,10 @@ namespace Redux.Storage
             _renderEntitiesDataMethodsList.ForEach(render => render(GetState()));
 
         private State GetState() =>
-            _statesHistory.Last();
+            _statesHistory
+                   .Select(state => new State(state))
+                   .DefaultIfEmpty(new State())
+                   .Last();
 
         #endregion
 
